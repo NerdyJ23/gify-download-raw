@@ -22,23 +22,9 @@
 })();
 
 function getImageSrc() {
-    const vidlink = $("video").attr('src');
-	var window = open(vidlink, "newwindow");
-	setTimeout(() => {
-		console.log(window);
-	}, 2000);
-	/*fetch(vidlink)
-	.then((response) => {
-		return response.blob()
-	})
-	.then((blob) => {
-		var reader = new FileReader();
-		reader.readAsText(blob);
-
-		reader.onloadend = function() {
-			console.log(reader.result);
-		}
-	});*/
+    var vidlink = window.location.href;
+	vidlink = vidlink.slice(vidlink.lastIndexOf('-') + 1 );
+	open(`https://i.giphy.com/${vidlink}.gif`, "newwindow");
 	console.log(vidlink);
 }
 
